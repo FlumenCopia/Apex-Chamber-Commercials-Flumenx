@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Engagement & Commercials — The Apex Chamber</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#15130F;--ink-2:#241F18;--cream:#F6F1E7;--cream-2:#EFE7D7;--paper:#FBF8F1;
+    --gold:#B7892E;--gold-2:#9A7220;--gold-soft:#E7CE92;--rose:#B5566A;--teal:#1F6F6B;
+    --line:rgba(21,19,15,.14);--line-soft:rgba(21,19,15,.08);--muted:#5C544A;
+    --shadow:0 24px 60px -34px rgba(21,19,15,.4);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:"DM Sans",system-ui,sans-serif;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+  h1,h2,h3,h4{font-family:"Playfair Display",serif;font-weight:600;line-height:1.14;margin:0;color:var(--ink)}
+  p{margin:0 0 1em}
+  strong{font-weight:600}
+  em{font-style:italic}
+  .sheet{max-width:920px;margin:0 auto;padding:0 26px}
+  .eyebrow{font-size:11px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--gold-2)}
+
+  /* header band */
+  .band{background:linear-gradient(160deg,#13110D,#211B13);color:var(--cream);padding:46px 0 40px;position:relative;overflow:hidden}
+  .band:before{content:"";position:absolute;right:-80px;top:-80px;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(183,137,46,.22),transparent 68%)}
+  .band .sheet{position:relative;z-index:2}
+  .topline{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:30px}
+  .brandmark{display:flex;align-items:center;gap:11px}
+  .crest{width:34px;height:34px;border:1.4px solid var(--gold-soft);border-radius:50%;display:grid;place-items:center;font-family:"Playfair Display";font-weight:700;font-size:15px;color:var(--gold-soft)}
+  .brandmark b{font-family:"Playfair Display";font-size:17px;color:var(--cream);display:block;line-height:1.1}
+  .brandmark span{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-soft)}
+  .conf-tag{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:rgba(231,206,146,.6);border:1px solid rgba(231,206,146,.3);padding:6px 13px;border-radius:100px}
+  .band h1{font-size:clamp(1.9rem,4.4vw,2.9rem);font-weight:700;color:var(--cream);letter-spacing:-.01em;max-width:18ch}
+  .band .sub{color:rgba(246,241,231,.72);font-size:1.05rem;margin-top:14px;max-width:62ch;font-weight:300}
+
+  .intro{padding:40px 0 8px}
+  .intro p{font-size:1.08rem;color:var(--ink)}
+  .intro .lead{font-family:"Playfair Display";font-style:italic;font-size:1.22rem;color:var(--gold-2);line-height:1.45;margin-bottom:18px}
+
+  section{padding:26px 0}
+  .snum{font-family:"Playfair Display";font-style:italic;color:var(--gold-2);font-size:.95rem}
+  h2.sh{font-size:1.5rem;margin:6px 0 4px}
+  .sdesc{color:var(--muted);font-size:.97rem;margin-bottom:20px;max-width:64ch}
+
+  .block{border:1px solid var(--line);border-radius:14px;padding:24px 26px;background:var(--paper);margin-bottom:16px}
+  .block.dark{background:linear-gradient(125deg,#19150F,#241d12);border-color:var(--gold);color:var(--cream)}
+  .block.dark h3,.block.dark h4{color:var(--gold-soft)}
+  .block.dark p,.block.dark li{color:rgba(246,241,231,.74)}
+  .block-top{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;flex-wrap:wrap}
+  .block h3{font-size:1.3rem;margin-bottom:4px}
+  .block .role{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-2);font-weight:600;margin-bottom:9px}
+  .fee{text-align:right;flex-shrink:0}
+  .fee .amt{font-family:"Playfair Display";font-size:1.45rem;font-weight:600;color:var(--ink);white-space:nowrap}
+  .block.dark .fee .amt{color:var(--gold-soft)}
+  .fee .per{font-size:.76rem;color:var(--muted);letter-spacing:.04em}
+  .block ul{margin:14px 0 0;padding:0;list-style:none;columns:2;column-gap:30px}
+  @media(max-width:680px){.block ul{columns:1}}
+  .block ul li{position:relative;padding-left:20px;margin-bottom:8px;font-size:.92rem;color:var(--muted);break-inside:avoid}
+  .block ul li:before{content:"";position:absolute;left:0;top:8px;width:6px;height:6px;border:1.4px solid var(--gold);transform:rotate(45deg)}
+
+  .paths{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  @media(max-width:760px){.paths{grid-template-columns:1fr}}
+  .path{border:1px solid var(--line);border-radius:14px;padding:22px;background:var(--paper);transition:.22s;display:flex;flex-direction:column}
+  .path:hover{border-color:var(--gold);box-shadow:var(--shadow);transform:translateY(-2px)}
+  .path .pk{font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--gold-2);margin-bottom:8px}
+  .path h4{font-size:1.18rem;margin-bottom:8px}
+  .path p{font-size:.9rem;color:var(--muted);margin-bottom:12px;flex:1}
+  .path .ch{font-size:.8rem;letter-spacing:.04em;color:var(--teal);font-weight:600;border-top:1px solid var(--line-soft);padding-top:11px}
+  .path.feature{background:linear-gradient(135deg,#fbf6ea,#f3ead4);border-color:var(--gold)}
+  .path.feature .ch{color:var(--gold-2)}
+
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--line);border-radius:14px;overflow:hidden}
+  @media(max-width:680px){.steps{grid-template-columns:1fr}}
+  .step{padding:22px;border-right:1px solid var(--line-soft)}
+  .step:last-child{border-right:none}
+  .step .n{font-family:"Playfair Display";font-size:1.6rem;color:var(--gold-2);line-height:1}
+  .step h4{font-size:1.05rem;margin:8px 0 5px}
+  .step p{font-size:.88rem;color:var(--muted);margin:0}
+
+  .note{background:rgba(31,111,107,.07);border-left:3px solid var(--teal);border-radius:0 12px 12px 0;padding:16px 20px;font-size:.92rem;color:var(--muted);margin-top:18px}
+  .note b{color:var(--ink)}
+
+  footer{border-top:1px solid var(--line);margin-top:34px;padding:28px 0 46px}
+  .foot{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;align-items:flex-end}
+  .foot .c b{font-family:"Playfair Display";font-size:1.05rem;color:var(--ink)}
+  .foot .c span{display:block;font-size:.86rem;color:var(--muted)}
+  .foot .meta{font-size:.78rem;color:var(--muted);text-align:right;max-width:46ch;line-height:1.6}
+</style>
+</head>
+<body>
+
+<div class="band">
+  <div class="sheet">
+    <div class="topline">
+      <div class="brandmark">
+        <span class="crest">A</span>
+        <span><b>The Apex Chamber</b><span>FlumenX · Misc Archive</span></span>
+      </div>
+      <span class="conf-tag">Confidential · For the Founding Principals</span>
+    </div>
+    <h1>Engagement &amp; Commercials</h1>
+    <p class="sub">How we propose to take the chamber from this masterplan to a launched, defensible institution — and the ways the partnership can be structured.</p>
+  </div>
+</div>
+
+<div class="sheet">
+
+  <div class="intro">
+    <p class="lead">The masterplan is the thinking. This is how it gets built — and how we build it together.</p>
+    <p>What follows is a clear, phased path from foundation through to roll-out, with indicative commercials so the conversation can be concrete. The work is presented as a proper build because that is what an institution of this stature requires — and because doing it by halves is how these ventures lose their shine. Figures are indicative starting points, confirmed against scope in a short discovery step before anything begins.</p>
+  </div>
+
+  <!-- 01 Foundation -->
+  <section>
+    <span class="snum">01</span>
+    <h2 class="sh">The Foundation Engagement</h2>
+    <p class="sdesc">The first phase, of which this masterplan is the opening deliverable — everything required to make the chamber real before a single member is invited.</p>
+    <div class="block">
+      <div class="block-top">
+        <div>
+          <div class="role">Phase 0 · Fixed fee</div>
+          <h3>Strategy, Brand &amp; Identity</h3>
+        </div>
+        <div class="fee"><div class="amt">₹2L – ₹4L</div><div class="per">fixed · on confirmed scope</div></div>
+      </div>
+      <ul>
+        <li>The strategic masterplan (delivered)</li>
+        <li>Name &amp; brand architecture decision</li>
+        <li>Full visual identity system</li>
+        <li>Membership &amp; governance documentation</li>
+        <li>Go-to-market &amp; founding-cohort playbook</li>
+        <li>Brand &amp; messaging system for launch</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 02 Build -->
+  <section>
+    <span class="snum">02</span>
+    <h2 class="sh">The Platform Build</h2>
+    <p class="sdesc">The digital estate the institution runs on — phased, so investment tracks momentum. Delivered as a build, or as a build plus an ongoing platform licence (see Path B).</p>
+    <div class="block">
+      <div class="block-top">
+        <div>
+          <div class="role">Phase 0–2 · Phased</div>
+          <h3>The Four-Layer Technology Estate</h3>
+        </div>
+        <div class="fee"><div class="amt">₹18L – ₹45L</div><div class="per">phased across the build</div></div>
+      </div>
+      <ul>
+        <li>Public platform &amp; application gateway</li>
+        <li>Member super-app — web, iOS &amp; Android</li>
+        <li>Chapter operations console</li>
+        <li>HQ &amp; governance console</li>
+        <li>International business directory</li>
+        <li>Forum, deal-room &amp; events modules</li>
+      </ul>
+    </div>
+    <div class="block">
+      <div class="block-top">
+        <div>
+          <div class="role">Ongoing · Optional</div>
+          <h3>Strategic &amp; Brand Retainer</h3>
+        </div>
+        <div class="fee"><div class="amt">₹75K – ₹1.5L</div><div class="per">per month</div></div>
+      </div>
+      <p style="margin-bottom:0;color:var(--muted);font-size:.93rem">Continued strategic, brand and digital stewardship through launch and expansion — keeping the institution coherent as it scales across chapters and geographies.</p>
+    </div>
+  </section>
+
+  <!-- 03 Models of partnership -->
+  <section>
+    <span class="snum">03</span>
+    <h2 class="sh">Models of Partnership</h2>
+    <p class="sdesc">Three ways to structure the relationship, by how deep the alignment goes. Each is viable on its own; they can also combine.</p>
+    <div class="paths">
+      <div class="path">
+        <div class="pk">Path A</div>
+        <h4>Studio Partner</h4>
+        <p>FlumenX delivers the foundation and build on a project basis, with an optional retainer. Clean, immediate, and the simplest way to begin.</p>
+        <div class="ch">Project + retainer</div>
+      </div>
+      <div class="path feature">
+        <div class="pk">Path B · Recommended</div>
+        <h4>Platform Partner</h4>
+        <p>FlumenX builds, owns and operates the technology estate, licensed to the chamber per chapter and per member. The institution always runs on a living, supported platform; cost scales with growth.</p>
+        <div class="ch">Build + per-chapter licence</div>
+      </div>
+      <div class="path">
+        <div class="pk">Path C</div>
+        <h4>Founding Partner</h4>
+        <p>For the deepest alignment — a founding stake in the operating company in exchange for system design and execution leadership across the build. Structured directly between principals.</p>
+        <div class="ch">Equity · by discussion</div>
+      </div>
+    </div>
+    <div class="note"><b>On the technology.</b> The platform is the operating spine of the institution — the system every chapter, in every country, runs on. We recommend it is built and maintained as a living product (Path B) rather than handed over and left to age, so the chamber always has a supported, evolving backbone as it scales worldwide.</div>
+  </section>
+
+  <!-- 04 How we proceed -->
+  <section>
+    <span class="snum">04</span>
+    <h2 class="sh">How We Proceed</h2>
+    <p class="sdesc">Three light steps to move from this document to work underway.</p>
+    <div class="steps">
+      <div class="step"><div class="n">01</div><h4>Working session</h4><p>A short conversation to align on direction, the chosen brand route, and the founding cohort.</p></div>
+      <div class="step"><div class="n">02</div><h4>Scope &amp; agreement</h4><p>A confirmed statement of work and terms — fees finalised against scope, partnership model chosen.</p></div>
+      <div class="step"><div class="n">03</div><h4>Phase 0 begins</h4><p>Brand, identity and platform foundations start, on the agreed terms. The build is underway.</p></div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="foot">
+      <div class="c">
+        <b>Anoop Krishna V A</b>
+        <span>Strategic &amp; Brand Architect · FlumenX · Misc Archive</span>
+        <span>anoopkrishna@flumenx.com · +91 8907 634900</span>
+      </div>
+      <div class="meta">All figures are indicative starting points for discussion, confirmed against scope before commencement, and exclusive of applicable taxes and third-party costs. This document is confidential and prepared solely for the founding principals.</div>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>
